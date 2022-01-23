@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASAQR", "MASAQR\MASAQR.csproj", "{3B46FE91-0031-4FAB-8FBF-EF977B0C6BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRAccessData", "QRAccessData\QRAccessData.csproj", "{020EAA6D-6879-422C-8647-CCD3582F21BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B46FE91-0031-4FAB-8FBF-EF977B0C6BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B46FE91-0031-4FAB-8FBF-EF977B0C6BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B46FE91-0031-4FAB-8FBF-EF977B0C6BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B46FE91-0031-4FAB-8FBF-EF977B0C6BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{020EAA6D-6879-422C-8647-CCD3582F21BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{020EAA6D-6879-422C-8647-CCD3582F21BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{020EAA6D-6879-422C-8647-CCD3582F21BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{020EAA6D-6879-422C-8647-CCD3582F21BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9132CE6E-67F5-4A16-9AE3-A83BCCD0AFE0}
+	EndGlobalSection
+EndGlobal

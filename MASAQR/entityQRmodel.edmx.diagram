@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="38f88221115b41beaa71737a04a1b8e7" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="qrMasterModel.Client" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qrMasterModel.Employee" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qrMasterModel.Site" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qrMasterModel.User" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="qrMasterModel.Register_Form" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="qrMasterModel.RecruitmentTable" Width="2" PointX="7.625" PointY="0.625" />
+        <EntityTypeShape EntityType="qrMasterModel.Assignments" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Disciplinary" Width="2" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Licence" Width="1.5" PointX="5.5" PointY="7.625" />
+        <EntityTypeShape EntityType="qrMasterModel.Employee_Detail" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Employee_Positions" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Education" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Login" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Drivers_Reference" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Track_Modifications" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Location_Area" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Standard_Reference" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="qrMasterModel.Crim_Check" Width="1.5" PointX="12.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

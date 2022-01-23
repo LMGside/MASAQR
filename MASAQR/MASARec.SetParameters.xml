@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Recruitment" />
+  <setParameter name="qrMasterEntities-Web.config Connection String" value="metadata=res://*/entityQRmodel.csdl|res://*/entityQRmodel.ssdl|res://*/entityQRmodel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-ABPB5FOS;initial catalog=qrMaster;user id=test2;password=admin123;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>

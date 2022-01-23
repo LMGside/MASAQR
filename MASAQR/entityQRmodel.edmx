@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qrMasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assignments">
+          <Key>
+            <PropertyRef Name="Assignment Confirmation No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Assignment Confirmation No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Client Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Start Date" Type="date" Nullable="false" />
+          <Property Name="End Date" Type="date" />
+          <Property Name="End Condition" Type="varchar" MaxLength="50" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client ID" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
+          <Property Name="Client" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Crim Check">
+          <Key>
+            <PropertyRef Name="Crim Number" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Crim Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Criminal Result" Type="varchar" MaxLength="20" />
+          <Property Name="Criminal Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Disciplinary">
+          <Key>
+            <PropertyRef Name="Disciplinary No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Disciplinary No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Employee Number" Type="varchar" MaxLength="10" />
+          <Property Name="Chairperson" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Charge" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date of Disciplinary" Type="date" Nullable="false" />
+          <Property Name="Plea" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Sanction" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Reason for Sanction" Type="text" Nullable="false" />
+          <Property Name="Expiry Date for Sanction" Type="date" />
+          <Property Name="Additional Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="Drivers Reference">
+          <Key>
+            <PropertyRef Name="Reference No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Reference No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="ID or Passport" Type="varchar" MaxLength="20" />
+          <Property Name="Company Name" Type="varchar" MaxLength="50" />
+          <Property Name="Physical Address" Type="varchar" MaxLength="50" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="30" />
+          <Property Name="Dates of Employment" Type="varchar" MaxLength="50" />
+          <Property Name="Reason for Leaving" Type="text" />
+          <Property Name="Responsibilities" Type="varchar" MaxLength="50" />
+          <Property Name="Formal Training" Type="varchar" MaxLength="10" />
+          <Property Name="FT Comment" Type="text" />
+          <Property Name="Pull Trailer" Type="varchar" MaxLength="10" />
+          <Property Name="Tow Vehicles" Type="varchar" MaxLength="10" />
+          <Property Name="Experience Driving" Type="varchar" MaxLength="50" />
+          <Property Name="Drivers Log" Type="varchar" MaxLength="10" />
+          <Property Name="Accurate Submission" Type="varchar" MaxLength="10" />
+          <Property Name="Stock Shortages" Type="varchar" MaxLength="10" />
+          <Property Name="SS Comment" Type="text" />
+          <Property Name="Cash Responsibility" Type="varchar" MaxLength="10" />
+          <Property Name="CR Comment" Type="text" />
+          <Property Name="Punctuality" Type="text" />
+          <Property Name="Communication Skills" Type="text" />
+          <Property Name="Interaction with Others" Type="text" />
+          <Property Name="Strengths and Weaknesses" Type="text" />
+          <Property Name="Problem Solving" Type="text" />
+          <Property Name="Willing to Re-Employ" Type="varchar" MaxLength="10" />
+          <Property Name="WRE Comment" Type="text" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Education No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Education No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Qualification" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee No" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
+          <Property Name="Name" Type="text" Nullable="false" />
+          <Property Name="Surname" Type="text" Nullable="false" />
+          <Property Name="ID No" Type="text" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Employee Detail">
+          <Key>
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="30" />
+          <Property Name="Home Language" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Disabled" Type="bit" />
+          <Property Name="Nature of Disability" Type="varchar" MaxLength="50" />
+          <Property Name="Martial Status" Type="varchar" MaxLength="20" />
+          <Property Name="Health" Type="varchar" MaxLength="20" />
+          <Property Name="Vaccinated" Type="varchar" MaxLength="10" />
+          <Property Name="NoK Name" Type="varchar" MaxLength="20" />
+          <Property Name="NoK Contact" Type="varchar" MaxLength="16" />
+          <Property Name="NoK Relationship" Type="varchar" MaxLength="20" />
+          <Property Name="Own Transport" Type="varchar" MaxLength="10" />
+          <Property Name="Accident History" Type="bit" />
+          <Property Name="Accident Detail" Type="text" />
+        </EntityType>
+        <EntityType Name="Employee Positions">
+          <Key>
+            <PropertyRef Name="Position No" />
+            <PropertyRef Name="Register No" />
+          </Key>
+          <Property Name="Position No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Register No" Type="int" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="30" />
+          <Property Name="Experience" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Licence">
+          <Key>
+            <PropertyRef Name="Licence No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Licence No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Licence Type" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Licence Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Licence Expiry Date" Type="date" Nullable="false" />
+          <Property Name="MHV Attachment" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Location Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="varchar" MaxLength="16" />
+          <Property Name="Permit" Type="bit" />
+          <Property Name="Permit Date" Type="date" />
+        </EntityType>
+        <EntityType Name="RecruitmentTable">
+          <Key>
+            <PropertyRef Name="Reg No" />
+          </Key>
+          <Property Name="Reg No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee Number" Type="varchar" MaxLength="10" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="30" />
+          <Property Name="ID" Type="varchar" MaxLength="20" />
+          <Property Name="Passport" Type="varchar" MaxLength="20" />
+          <Property Name="Work Permit" Type="varchar" MaxLength="20" />
+          <Property Name="Date of Birth" Type="date" Nullable="false" />
+          <Property Name="Tel 1" Type="varchar" MaxLength="15" />
+          <Property Name="Tel 2" Type="varchar" MaxLength="15" />
+          <Property Name="Home Address" Type="varchar" MaxLength="80" />
+          <Property Name="Area" Type="varchar" MaxLength="20" />
+          <Property Name="Race" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Positions" Type="varchar" MaxLength="50" />
+          <Property Name="Tax Number" Type="varchar" MaxLength="16" />
+          <Property Name="Initial Impression" Type="varchar" MaxLength="50" />
+          <Property Name="Vetting Finished" Type="bit" />
+          <Property Name="Decline Reason" Type="text" />
+          <Property Name="ABET Num" Type="int" />
+          <Property Name="ABET Lit" Type="int" />
+          <Property Name="Interview" Type="int" />
+          <Property Name="Interview Type" Type="varchar" MaxLength="50" />
+          <Property Name="Reference 1" Type="int" />
+          <Property Name="Reference Type 1" Type="varchar" MaxLength="20" />
+          <Property Name="Reference 2" Type="int" />
+          <Property Name="Reference Type 2" Type="varchar" MaxLength="20" />
+          <Property Name="Crime Check" Type="varchar" MaxLength="16" />
+          <Property Name="Master Contract" Type="bit" />
+          <Property Name="Manager Approval" Type="varchar" MaxLength="10" />
+          <Property Name="Employment Status" Type="varchar" MaxLength="20" />
+          <Property Name="Audit By" Type="varchar" MaxLength="50" />
+          <Property Name="Vetted By" Type="varchar" MaxLength="50" />
+          <Property Name="Last Modified" Type="date" />
+          <Property Name="Date Added" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Register Form">
+          <Key>
+            <PropertyRef Name="Employee ID" />
+            <PropertyRef Name="Site ID" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Employee ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Site ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Time In" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Time Out" Type="time" Precision="7" />
+          <Property Name="Location In" Type="text" Nullable="false" />
+          <Property Name="Distance to Site Location" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="7" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Site ID" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" />
+          <Property Name="Client ID" Type="text" Nullable="false" />
+          <Property Name="Site Agent" Type="text" Nullable="false" />
+          <Property Name="Address" Type="text" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="7" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Standard Reference">
+          <Key>
+            <PropertyRef Name="Reference No" />
+            <PropertyRef Name="Registration No" />
+          </Key>
+          <Property Name="Reference No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registration No" Type="int" Nullable="false" />
+          <Property Name="Obtained From" Type="varchar" MaxLength="30" />
+          <Property Name="Position" Type="varchar" MaxLength="30" />
+          <Property Name="Company Name" Type="varchar" MaxLength="50" />
+          <Property Name="Physical Address" Type="varchar" MaxLength="70" />
+          <Property Name="Contact" Type="varchar" MaxLength="16" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Confirmation of Info" Type="varchar" MaxLength="10" />
+          <Property Name="Presentation Skills" Type="varchar" MaxLength="20" />
+          <Property Name="PS Comment" Type="text" />
+          <Property Name="Decision Making Ability" Type="varchar" MaxLength="20" />
+          <Property Name="DMA Comment" Type="text" />
+          <Property Name="Quality of Work" Type="varchar" MaxLength="20" />
+          <Property Name="QoW Comment" Type="text" />
+          <Property Name="Organisation Skills" Type="varchar" MaxLength="20" />
+          <Property Name="OS Comment" Type="text" />
+          <Property Name="Flexibility" Type="varchar" MaxLength="20" />
+          <Property Name="Flexibility Comment" Type="text" />
+          <Property Name="Working Speed" Type="varchar" MaxLength="20" />
+          <Property Name="WS Comment" Type="text" />
+          <Property Name="Attitude" Type="varchar" MaxLength="20" />
+          <Property Name="Attitude Comment" Type="text" />
+          <Property Name="Reliability" Type="varchar" MaxLength="20" />
+          <Property Name="Reliability Comment" Type="text" />
+          <Property Name="Dependability" Type="varchar" MaxLength="20" />
+          <Property Name="Dependability Comment" Type="text" />
+          <Property Name="Relationships with Others" Type="varchar" MaxLength="20" />
+          <Property Name="RO Comment" Type="text" />
+          <Property Name="Initiative" Type="varchar" MaxLength="20" />
+          <Property Name="Initiative Comment" Type="text" />
+          <Property Name="Trustworthy" Type="varchar" MaxLength="20" />
+          <Property Name="Trustworthy Comment" Type="text" />
+          <Property Name="Any Problems Experienced" Type="varchar" MaxLength="10" />
+          <Property Name="APE Comment" Type="text" />
+          <Property Name="Recommendation to Position" Type="varchar" MaxLength="10" />
+          <Property Name="RP Comment" Type="text" />
+          <Property Name="Willing to Re-Employ" Type="text" />
+          <Property Name="Reason for Recommendation" Type="text" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="Track Modifications">
+          <Key>
+            <PropertyRef Name="Track No" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Track No" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Modified Table" Type="varchar" MaxLength="50" />
+          <Property Name="Modified Registration No" Type="int" />
+          <Property Name="Modified Action" Type="varchar" MaxLength="50" />
+          <Property Name="Modified Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_ID" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
+          <Property Name="Name" Type="text" Nullable="false" />
+          <Property Name="Surname" Type="text" Nullable="false" />
+          <Property Name="Position" Type="text" Nullable="false" />
+          <Property Name="Username" Type="text" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="System Role" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="qrMasterModelStoreContainer">
+          <EntitySet Name="Assignments" EntityType="Self.Assignments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Crim Check" EntityType="Self.Crim Check" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disciplinary" EntityType="Self.Disciplinary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drivers Reference" EntityType="Self.Drivers Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee Detail" EntityType="Self.Employee Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee Positions" EntityType="Self.Employee Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Licence" EntityType="Self.Licence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location Area" EntityType="Self.Location Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecruitmentTable" EntityType="Self.RecruitmentTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register Form" EntityType="Self.Register Form" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Standard Reference" EntityType="Self.Standard Reference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Track Modifications" EntityType="Self.Track Modifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qrMasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Client1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_No" Type="String" MaxLength="7" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Site_ID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Client_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Site_Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="18" Scale="7" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="18" Scale="7" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_ID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="System_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="qrMasterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Site" EntityType="Self.Site" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Register_Form" EntityType="qrMasterModel.Register_Form" />
+          <EntitySet Name="RecruitmentTable" EntityType="qrMasterModel.RecruitmentTable" />
+          <EntitySet Name="Assignments" EntityType="qrMasterModel.Assignments" />
+          <EntitySet Name="Disciplinary" EntityType="qrMasterModel.Disciplinary" />
+          <EntitySet Name="Licence" EntityType="qrMasterModel.Licence" />
+          <EntitySet Name="Employee_Detail" EntityType="qrMasterModel.Employee_Detail" />
+          <EntitySet Name="Employee_Positions" EntityType="qrMasterModel.Employee_Positions" />
+          <EntitySet Name="Education" EntityType="qrMasterModel.Education" />
+          <EntitySet Name="Login" EntityType="qrMasterModel.Login" />
+          <EntitySet Name="Drivers_Reference" EntityType="qrMasterModel.Drivers_Reference" />
+          <EntitySet Name="Track_Modifications" EntityType="qrMasterModel.Track_Modifications" />
+          <EntitySet Name="Location_Area" EntityType="qrMasterModel.Location_Area" />
+          <EntitySet Name="Standard_Reference" EntityType="qrMasterModel.Standard_Reference" />
+          <EntitySet Name="Crim_Check" EntityType="qrMasterModel.Crim_Check" />
+        </EntityContainer>
+        <EntityType Name="Register_Form">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Site_ID" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Employee_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Site_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time_In" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Time_Out" Type="Time" Precision="7" />
+          <Property Name="Location_In" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Distance_to_Site_Location" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="18" Scale="7" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="18" Scale="7" />
+        </EntityType>
+        <EntityType Name="RecruitmentTable">
+          <Key>
+            <PropertyRef Name="Reg_No" />
+          </Key>
+          <Property Name="Reg_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tel_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Tel_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Home_Address" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Race" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Positions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Initial_Impression" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ABET_Num" Type="Int32" />
+          <Property Name="ABET_Lit" Type="Int32" />
+          <Property Name="Interview" Type="Int32" />
+          <Property Name="Reference_1" Type="Int32" />
+          <Property Name="Reference_2" Type="Int32" />
+          <Property Name="Crime_Check" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Master_Contract" Type="Boolean" />
+          <Property Name="Manager_Approval" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Employment_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Audit_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vetted_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Modified" Type="DateTime" Precision="0" />
+          <Property Name="Decline_Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Interview_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_Type_1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_Type_2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Work_Permit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vetting_Finished" Type="Boolean" />
+          <Property Name="Date_of_Birth" Type="DateTime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignments">
+          <Key>
+            <PropertyRef Name="Assignment_Confirmation_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Assignment_Confirmation_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Client_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="End_Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Disciplinary">
+          <Key>
+            <PropertyRef Name="Disciplinary_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Disciplinary_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Chairperson" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Charge" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_of_Disciplinary" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Plea" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Sanction" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Reason_for_Sanction" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Expiry_Date_for_Sanction" Type="DateTime" Precision="0" />
+          <Property Name="Additional_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Licence">
+          <Key>
+            <PropertyRef Name="Licence_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Licence_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Licence_Type" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Licence_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Licence_Expiry_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MHV_Attachment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee_Detail">
+          <Key>
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Home_Language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disabled" Type="Boolean" />
+          <Property Name="Nature_of_Disability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Martial_Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Health" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Vaccinated" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NoK_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NoK_Contact" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NoK_Relationship" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Own_Transport" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Accident_History" Type="Boolean" />
+          <Property Name="Accident_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee_Positions">
+          <Key>
+            <PropertyRef Name="Position_No" />
+            <PropertyRef Name="Register_No" />
+          </Key>
+          <Property Name="Position_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Register_No" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="Education_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Education_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Qualification" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Permit" Type="Boolean" />
+          <Property Name="Permit_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Drivers_Reference">
+          <Key>
+            <PropertyRef Name="Reference_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Reference_No" Type="Int32" Nullable="false" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="ID_or_Passport" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Physical_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dates_of_Employment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reason_for_Leaving" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Responsibilities" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Formal_Training" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FT_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pull_Trailer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Tow_Vehicles" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Experience_Driving" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Drivers_Log" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Accurate_Submission" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Stock_Shortages" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SS_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cash_Responsibility" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CR_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Punctuality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Communication_Skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Interaction_with_Others" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Strengths_and_Weaknesses" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Problem_Solving" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Willing_to_Re_Employ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WRE_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Track_Modifications">
+          <Key>
+            <PropertyRef Name="Track_No" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Track_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Modified_Table" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modified_Registration_No" Type="Int32" />
+          <Property Name="Modified_Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Location_Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Standard_Reference">
+          <Key>
+            <PropertyRef Name="Reference_No" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Reference_No" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Obtained_From" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Physical_Address" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Confirmation_of_Info" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Presentation_Skills" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PS_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Decision_Making_Ability" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DMA_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Quality_of_Work" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QoW_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Organisation_Skills" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OS_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Flexibility" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Flexibility_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Working_Speed" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WS_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Attitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Attitude_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reliability" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Reliability_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Dependability" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Dependability_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Relationships_with_Others" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RO_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Initiative" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Initiative_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Trustworthy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Trustworthy_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Any_Problems_Experienced" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="APE_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recommendation_to_Position" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RP_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Willing_to_Re_Employ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reason_for_Recommendation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Crim_Check">
+          <Key>
+            <PropertyRef Name="Crim_Number" />
+            <PropertyRef Name="Registration_No" />
+          </Key>
+          <Property Name="Crim_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registration_No" Type="Int32" Nullable="false" />
+          <Property Name="Criminal_Result" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Criminal_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qrMasterModelStoreContainer" CdmEntityContainer="qrMasterEntities">
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="qrMasterModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client ID" />
+                <ScalarProperty Name="Client1" ColumnName="Client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="qrMasterModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Employee_No" ColumnName="Employee No" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="ID_No" ColumnName="ID No" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Site">
+            <EntityTypeMapping TypeName="qrMasterModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Site_ID" ColumnName="Site ID" />
+                <ScalarProperty Name="Client_ID" ColumnName="Client ID" />
+                <ScalarProperty Name="Site_Agent" ColumnName="Site Agent" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="qrMasterModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="System_Role" ColumnName="System Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Register_Form">
+            <EntityTypeMapping TypeName="qrMasterModel.Register_Form">
+              <MappingFragment StoreEntitySet="Register Form">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Distance_to_Site_Location" ColumnName="Distance to Site Location" />
+                <ScalarProperty Name="Location_In" ColumnName="Location In" />
+                <ScalarProperty Name="Time_Out" ColumnName="Time Out" />
+                <ScalarProperty Name="Time_In" ColumnName="Time In" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Site_ID" ColumnName="Site ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecruitmentTable">
+            <EntityTypeMapping TypeName="qrMasterModel.RecruitmentTable">
+              <MappingFragment StoreEntitySet="RecruitmentTable">
+                <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+                <ScalarProperty Name="Vetting_Finished" ColumnName="Vetting Finished" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date Added" />
+                <ScalarProperty Name="Work_Permit" ColumnName="Work Permit" />
+                <ScalarProperty Name="Reference_Type_2" ColumnName="Reference Type 2" />
+                <ScalarProperty Name="Reference_Type_1" ColumnName="Reference Type 1" />
+                <ScalarProperty Name="Interview_Type" ColumnName="Interview Type" />
+                <ScalarProperty Name="Decline_Reason" ColumnName="Decline Reason" />
+                <ScalarProperty Name="Last_Modified" ColumnName="Last Modified" />
+                <ScalarProperty Name="Tax_Number" ColumnName="Tax Number" />
+                <ScalarProperty Name="Vetted_By" ColumnName="Vetted By" />
+                <ScalarProperty Name="Audit_By" ColumnName="Audit By" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Manager_Approval" ColumnName="Manager Approval" />
+                <ScalarProperty Name="Master_Contract" ColumnName="Master Contract" />
+                <ScalarProperty Name="Crime_Check" ColumnName="Crime Check" />
+                <ScalarProperty Name="Reference_2" ColumnName="Reference 2" />
+                <ScalarProperty Name="Reference_1" ColumnName="Reference 1" />
+                <ScalarProperty Name="Interview" ColumnName="Interview" />
+                <ScalarProperty Name="ABET_Lit" ColumnName="ABET Lit" />
+                <ScalarProperty Name="ABET_Num" ColumnName="ABET Num" />
+                <ScalarProperty Name="Initial_Impression" ColumnName="Initial Impression" />
+                <ScalarProperty Name="Positions" ColumnName="Positions" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Home_Address" ColumnName="Home Address" />
+                <ScalarProperty Name="Tel_2" ColumnName="Tel 2" />
+                <ScalarProperty Name="Tel_1" ColumnName="Tel 1" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employee_Number" ColumnName="Employee Number" />
+                <ScalarProperty Name="Reg_No" ColumnName="Reg No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assignments">
+            <EntityTypeMapping TypeName="qrMasterModel.Assignments">
+              <MappingFragment StoreEntitySet="Assignments">
+                <ScalarProperty Name="End_Condition" ColumnName="End Condition" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="End_Date" ColumnName="End Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Client_Name" ColumnName="Client Name" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Assignment_Confirmation_No" ColumnName="Assignment Confirmation No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disciplinary">
+            <EntityTypeMapping TypeName="qrMasterModel.Disciplinary">
+              <MappingFragment StoreEntitySet="Disciplinary">
+                <ScalarProperty Name="Employee_Number" ColumnName="Employee Number" />
+                <ScalarProperty Name="Additional_Comment" ColumnName="Additional Comment" />
+                <ScalarProperty Name="Expiry_Date_for_Sanction" ColumnName="Expiry Date for Sanction" />
+                <ScalarProperty Name="Reason_for_Sanction" ColumnName="Reason for Sanction" />
+                <ScalarProperty Name="Sanction" ColumnName="Sanction" />
+                <ScalarProperty Name="Plea" ColumnName="Plea" />
+                <ScalarProperty Name="Date_of_Disciplinary" ColumnName="Date of Disciplinary" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="Chairperson" ColumnName="Chairperson" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Disciplinary_No" ColumnName="Disciplinary No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licence">
+            <EntityTypeMapping TypeName="qrMasterModel.Licence">
+              <MappingFragment StoreEntitySet="Licence">
+                <ScalarProperty Name="MHV_Attachment" ColumnName="MHV Attachment" />
+                <ScalarProperty Name="Licence_Expiry_Date" ColumnName="Licence Expiry Date" />
+                <ScalarProperty Name="Licence_Code" ColumnName="Licence Code" />
+                <ScalarProperty Name="Licence_Type" ColumnName="Licence Type" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Licence_No" ColumnName="Licence No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Detail">
+            <EntityTypeMapping TypeName="qrMasterModel.Employee_Detail">
+              <MappingFragment StoreEntitySet="Employee Detail">
+                <ScalarProperty Name="Accident_Detail" ColumnName="Accident Detail" />
+                <ScalarProperty Name="Accident_History" ColumnName="Accident History" />
+                <ScalarProperty Name="Own_Transport" ColumnName="Own Transport" />
+                <ScalarProperty Name="NoK_Relationship" ColumnName="NoK Relationship" />
+                <ScalarProperty Name="NoK_Contact" ColumnName="NoK Contact" />
+                <ScalarProperty Name="NoK_Name" ColumnName="NoK Name" />
+                <ScalarProperty Name="Vaccinated" ColumnName="Vaccinated" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Martial_Status" ColumnName="Martial Status" />
+                <ScalarProperty Name="Nature_of_Disability" ColumnName="Nature of Disability" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Home_Language" ColumnName="Home Language" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Positions">
+            <EntityTypeMapping TypeName="qrMasterModel.Employee_Positions">
+              <MappingFragment StoreEntitySet="Employee Positions">
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Register_No" ColumnName="Register No" />
+                <ScalarProperty Name="Position_No" ColumnName="Position No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Education">
+            <EntityTypeMapping TypeName="qrMasterModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Education_No" ColumnName="Education No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="qrMasterModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Permit_Date" ColumnName="Permit Date" />
+                <ScalarProperty Name="Permit" ColumnName="Permit" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers_Reference">
+            <EntityTypeMapping TypeName="qrMasterModel.Drivers_Reference">
+              <MappingFragment StoreEntitySet="Drivers Reference">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="WRE_Comment" ColumnName="WRE Comment" />
+                <ScalarProperty Name="Willing_to_Re_Employ" ColumnName="Willing to Re-Employ" />
+                <ScalarProperty Name="Problem_Solving" ColumnName="Problem Solving" />
+                <ScalarProperty Name="Strengths_and_Weaknesses" ColumnName="Strengths and Weaknesses" />
+                <ScalarProperty Name="Interaction_with_Others" ColumnName="Interaction with Others" />
+                <ScalarProperty Name="Communication_Skills" ColumnName="Communication Skills" />
+                <ScalarProperty Name="Punctuality" ColumnName="Punctuality" />
+                <ScalarProperty Name="CR_Comment" ColumnName="CR Comment" />
+                <ScalarProperty Name="Cash_Responsibility" ColumnName="Cash Responsibility" />
+                <ScalarProperty Name="SS_Comment" ColumnName="SS Comment" />
+                <ScalarProperty Name="Stock_Shortages" ColumnName="Stock Shortages" />
+                <ScalarProperty Name="Accurate_Submission" ColumnName="Accurate Submission" />
+                <ScalarProperty Name="Drivers_Log" ColumnName="Drivers Log" />
+                <ScalarProperty Name="Experience_Driving" ColumnName="Experience Driving" />
+                <ScalarProperty Name="Tow_Vehicles" ColumnName="Tow Vehicles" />
+                <ScalarProperty Name="Pull_Trailer" ColumnName="Pull Trailer" />
+                <ScalarProperty Name="FT_Comment" ColumnName="FT Comment" />
+                <ScalarProperty Name="Formal_Training" ColumnName="Formal Training" />
+                <ScalarProperty Name="Responsibilities" ColumnName="Responsibilities" />
+                <ScalarProperty Name="Reason_for_Leaving" ColumnName="Reason for Leaving" />
+                <ScalarProperty Name="Dates_of_Employment" ColumnName="Dates of Employment" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Physical_Address" ColumnName="Physical Address" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company Name" />
+                <ScalarProperty Name="ID_or_Passport" ColumnName="ID or Passport" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Reference_No" ColumnName="Reference No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Track_Modifications">
+            <EntityTypeMapping TypeName="qrMasterModel.Track_Modifications">
+              <MappingFragment StoreEntitySet="Track Modifications">
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified Date" />
+                <ScalarProperty Name="Modified_Action" ColumnName="Modified Action" />
+                <ScalarProperty Name="Modified_Registration_No" ColumnName="Modified Registration No" />
+                <ScalarProperty Name="Modified_Table" ColumnName="Modified Table" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Track_No" ColumnName="Track No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location_Area">
+            <EntityTypeMapping TypeName="qrMasterModel.Location_Area">
+              <MappingFragment StoreEntitySet="Location Area">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Standard_Reference">
+            <EntityTypeMapping TypeName="qrMasterModel.Standard_Reference">
+              <MappingFragment StoreEntitySet="Standard Reference">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Reason_for_Recommendation" ColumnName="Reason for Recommendation" />
+                <ScalarProperty Name="Willing_to_Re_Employ" ColumnName="Willing to Re-Employ" />
+                <ScalarProperty Name="RP_Comment" ColumnName="RP Comment" />
+                <ScalarProperty Name="Recommendation_to_Position" ColumnName="Recommendation to Position" />
+                <ScalarProperty Name="APE_Comment" ColumnName="APE Comment" />
+                <ScalarProperty Name="Any_Problems_Experienced" ColumnName="Any Problems Experienced" />
+                <ScalarProperty Name="Trustworthy_Comment" ColumnName="Trustworthy Comment" />
+                <ScalarProperty Name="Trustworthy" ColumnName="Trustworthy" />
+                <ScalarProperty Name="Initiative_Comment" ColumnName="Initiative Comment" />
+                <ScalarProperty Name="Initiative" ColumnName="Initiative" />
+                <ScalarProperty Name="RO_Comment" ColumnName="RO Comment" />
+                <ScalarProperty Name="Relationships_with_Others" ColumnName="Relationships with Others" />
+                <ScalarProperty Name="Dependability_Comment" ColumnName="Dependability Comment" />
+                <ScalarProperty Name="Dependability" ColumnName="Dependability" />
+                <ScalarProperty Name="Reliability_Comment" ColumnName="Reliability Comment" />
+                <ScalarProperty Name="Reliability" ColumnName="Reliability" />
+                <ScalarProperty Name="Attitude_Comment" ColumnName="Attitude Comment" />
+                <ScalarProperty Name="Attitude" ColumnName="Attitude" />
+                <ScalarProperty Name="WS_Comment" ColumnName="WS Comment" />
+                <ScalarProperty Name="Working_Speed" ColumnName="Working Speed" />
+                <ScalarProperty Name="Flexibility_Comment" ColumnName="Flexibility Comment" />
+                <ScalarProperty Name="Flexibility" ColumnName="Flexibility" />
+                <ScalarProperty Name="OS_Comment" ColumnName="OS Comment" />
+                <ScalarProperty Name="Organisation_Skills" ColumnName="Organisation Skills" />
+                <ScalarProperty Name="QoW_Comment" ColumnName="QoW Comment" />
+                <ScalarProperty Name="Quality_of_Work" ColumnName="Quality of Work" />
+                <ScalarProperty Name="DMA_Comment" ColumnName="DMA Comment" />
+                <ScalarProperty Name="Decision_Making_Ability" ColumnName="Decision Making Ability" />
+                <ScalarProperty Name="PS_Comment" ColumnName="PS Comment" />
+                <ScalarProperty Name="Presentation_Skills" ColumnName="Presentation Skills" />
+                <ScalarProperty Name="Confirmation_of_Info" ColumnName="Confirmation of Info" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Physical_Address" ColumnName="Physical Address" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Obtained_From" ColumnName="Obtained From" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Reference_No" ColumnName="Reference No" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Crim_Check">
+            <EntityTypeMapping TypeName="qrMasterModel.Crim_Check">
+              <MappingFragment StoreEntitySet="Crim Check">
+                <ScalarProperty Name="Criminal_Date" ColumnName="Criminal Date" />
+                <ScalarProperty Name="Criminal_Result" ColumnName="Criminal Result" />
+                <ScalarProperty Name="Registration_No" ColumnName="Registration No" />
+                <ScalarProperty Name="Crim_Number" ColumnName="Crim Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
